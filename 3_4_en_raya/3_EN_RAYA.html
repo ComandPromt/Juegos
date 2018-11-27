@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid blue;
+            border-collapse: collapse;
+        }
+
+        table {
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        td {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="miTabla">
+        <tr>
+            <td id="0" onclick="jugar('0',false);"></td>
+            <td id="1" onclick="jugar('1',false);"></td>
+            <td id="2" onclick="jugar('2',false);"></td>
+        </tr>
+        <tr>
+            <td id="3" onclick="jugar('3',false);"></td>
+            <td id="4" onclick="jugar('4',false);"></td>
+            <td id="5" onclick="jugar('5',false);"></td>
+        </tr>
+        <tr>
+            <td id="6" onclick="jugar('6',false);"></td>
+            <td id="7" onclick="jugar('7',false);"></td>
+            <td id="8" onclick="jugar('8',false);"></td>
+        </tr>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Puntos Jugador1</th>
+                <th>Puntos Jugador2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="resultadoj1"></td>
+                <td id="resultadoj2"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
+<script>
+    var puntosj1 = 0;
+    var puntosj2 = 0;
+    var turnoj1;
+    var turnoj2;
+    var turno;
+    var posiciones = new Array(9);
+    var juegofinalizado = false;
+    var terminar = false;
+
+    function resetear() {
+        for (var i = 0; i <= 8; i++) {
+            document.getElementById(i).innerHTML = "";
+        }
+
+        terminar = true;
+    }
+
+    function verturno(id) {
+
+        if (turno == undefined) {
+
+            turno = 'X';
+        }
+        else {
+            if (turno == 'X') {
+
+                turno = 'O';
+            }
+            else {
+
+                turno = 'X';
+            }
+        }
+
+        posiciones[id] = turno;
+        var cuenta = 1;
+
+        if (posiciones[0] != undefined || posiciones[1] != undefined || posiciones[2] != undefined
+            || posiciones[3] != undefined || posiciones[4] != undefined || posiciones[5] != undefined
+            || posiciones[6] != undefined || posiciones[7] != undefined || posiciones[8] != undefined
+        ) {
+            if (posiciones[0] == posiciones[1] && posiciones[0] == posiciones[2] && posiciones[0] == 'X') {
+                alert('Gana el jugador 1');
+
+                resetear();
+                terminar = true;
+                document.getElementById('resultadoj1').innerHTML = ++puntosj1;
+
+            }
+            else {
+                if (posiciones[0] == posiciones[1] && posiciones[0] == posiciones[2] && posiciones[0] == 'O') {
+                    alert('Gana el jugador 2');
+                    resetear();
+                    terminar = true;
+                    document.getElementById('resultadoj2').innerHTML = ++puntosj2;
+                }
+                else {
+                    if (posiciones[3] == posiciones[4] && posiciones[3] == posiciones[5] && posiciones[3] == 'X') {
+                        alert('Gana el jugador 1');
+                        resetear();
+                        terminar = true;
+                        document.getElementById('resultadoj1').innerHTML = ++puntosj1;
+                    }
+                    else {
+                        if (posiciones[3] == posiciones[4] && posiciones[3] == posiciones[5] && posiciones[3] == 'O') {
+                            alert('Gana el jugador 2');
+                            resetear();
+                            terminar = true;
+                            document.getElementById('resultadoj2').innerHTML = ++puntosj2;
+                        }
+                        else {
+                            if (posiciones[6] == posiciones[7] && posiciones[6] == posiciones[8] && posiciones[6] == 'X') {
+                                alert('Gana el jugador 1');
+                                resetear();
+                                terminar = true;
+                                document.getElementById('resultadoj1').innerHTML = ++puntosj1;
+                            }
+                            else {
+                                if (posiciones[6] == posiciones[7] && posiciones[6] == posiciones[8] && posiciones[6] == 'O') {
+                                    alert('Gana el jugador 2');
+                                    resetear();
+                                    terminar = true;
+                                    document.getElementById('resultadoj2').innerHTML = ++puntosj2;
+                                }
+                                else {
+                                    if (posiciones[0] == posiciones[3] && posiciones[0] == posiciones[6] && posiciones[0] == 'O') {
+                                        alert('Gana el jugador 2');
+                                        resetear();
+                                        terminar = true;
+                                        document.getElementById('resultadoj2').innerHTML = ++puntosj2;
+                                    }
+                                    else {
+                                        if (posiciones[0] == posiciones[3] && posiciones[0] == posiciones[6] && posiciones[0] == 'X') {
+                                            alert('Gana el jugador 1');
+                                            resetear();
+                                            terminar = true;
+                                            document.getElementById('resultadoj1').innerHTML = ++puntosj1;
+                                        }
+                                        else {
+                                            if (posiciones[1] == posiciones[4] && posiciones[1] == posiciones[7] && posiciones[1] == 'X') {
+                                                alert('Gana el jugador 1');
+                                                resetear();
+                                                terminar = true;
+                                                document.getElementById('resultadoj1').innerHTML = ++puntosj1;
+                                            }
+                                            else {
+                                                if (posiciones[1] == posiciones[4] && posiciones[1] == posiciones[7] && posiciones[1] == 'O') {
+                                                    alert('Gana el jugador 2');
+                                                    resetear();
+                                                    terminar = true;
+                                                    document.getElementById('resultadoj2').innerHTML = ++puntosj2;
+                                                }
+                                                else {
+                                                    if (posiciones[2] == posiciones[5] && posiciones[2] == posiciones[8] && posiciones[2] == 'O') {
+                                                        alert('Gana el jugador 2');
+                                                        resetear();
+                                                        terminar = true;
+                                                        document.getElementById('resultadoj2').innerHTML = ++puntosj2;
+                                                    }
+                                                    else {
+                                                        if (posiciones[2] == posiciones[5] && posiciones[2] == posiciones[8] && posiciones[2] == 'X') {
+                                                            alert('Gana el jugador 1');
+                                                            resetear();
+                                                            terminar = true;
+                                                            document.getElementById('resultadoj1').innerHTML = ++puntosj1;
+                                                        }
+                                                        else {
+                                                            if (posiciones[0] == posiciones[4] && posiciones[0] == posiciones[8] && posiciones[0] == 'X') {
+                                                                alert('Gana el jugador 1');
+                                                                resetear();
+                                                                terminar = true;
+                                                                document.getElementById('resultadoj1').innerHTML = ++puntosj1;
+                                                            }
+                                                            else {
+                                                                if (posiciones[0] == posiciones[4] && posiciones[0] == posiciones[8] && posiciones[0] == 'O') {
+                                                                    alert('Gana el jugador 2');
+                                                                    resetear();
+                                                                    terminar = true;
+                                                                    document.getElementById('resultadoj2').innerHTML = ++puntosj2;
+                                                                }
+                                                                else {
+                                                                    if (posiciones[2] == posiciones[4] && posiciones[2] == posiciones[6] && posiciones[2] == 'O') {
+                                                                        alert('Gana el jugador 2');
+                                                                        resetear();
+                                                                        terminar = true;
+                                                                        document.getElementById('resultadoj2').innerHTML = ++puntosj2;
+                                                                    }
+                                                                    else {
+                                                                        if (posiciones[2] == posiciones[4] && posiciones[2] == posiciones[6] && posiciones[2] == 'X') {
+                                                                            alert('Gana el jugador 1');
+                                                                            resetear();
+                                                                            terminar = true;
+                                                                            document.getElementById('resultadoj1').innerHTML = ++puntosj1;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!terminar) {
+            return turno;
+        }
+
+    }
+
+    function jugar(id, fin) {
+
+        if (!fin) {
+
+            if (posiciones[id] == undefined) {
+
+                document.getElementById(id).innerHTML = verturno(id);
+            }
+
+            if (terminar) {
+                document.getElementById(id).innerHTML = "";
+                terminar = false;
+                posiciones = new Array(9);
+            }
+        }
+
+
+    }
+</script>

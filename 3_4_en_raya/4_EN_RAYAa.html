@@ -92,6 +92,7 @@
         terminar = true;
 
     }
+    
     function verturno(id) {
 
         if (turno == undefined) {
@@ -110,7 +111,6 @@
         }
 
         posiciones[id] = turno;
-        var cuenta = 1;
 
         if (posiciones[0] != undefined || posiciones[1] != undefined || posiciones[2] != undefined
             || posiciones[3] != undefined || posiciones[4] != undefined || posiciones[5] != undefined
@@ -125,7 +125,6 @@
                 resetear();
                 terminar = true;
                 document.getElementById('resultadoj1').innerHTML = ++puntosj1;
-
             }
             else {
                 if (posiciones[0] == posiciones[1] && posiciones[0] == posiciones[2] && posiciones[0] == posiciones[3] && posiciones[0] == 'O') {
@@ -140,8 +139,6 @@
                         document.getElementById('resultadoj1').innerHTML = ++puntosj1;
                         resetear();
                         terminar = true;
-
-
                     }
                     else {
                         if (posiciones[4] == posiciones[5] && posiciones[4] == posiciones[6] && posiciones[4] == posiciones[7] && posiciones[4] == 'O') {
@@ -286,7 +283,6 @@
 
             return turno;
         }
-
     }
 
     function jugar(id, fin) {

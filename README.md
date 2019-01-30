@@ -21,8 +21,8 @@ Introduce un numero y te dirá si el numero elegido es mayor o menor al aleatori
 
 ![Sudoku](sudoku.png)
 
-[1](https://github.com/ComandPromt/Juegos/tree/master/yasminoku)
-[2](https://github.com/ComandPromt/Juegos/tree/master/Sudoku%20-%20Jar)
+[Sudoku 1](https://github.com/ComandPromt/Juegos/tree/master/yasminoku)
+[Sudoku 2](https://github.com/ComandPromt/Juegos/tree/master/Sudoku%20-%20Jar)
 
 ---
 # Whack A Mole
@@ -53,6 +53,7 @@ Introduce un numero y te dirá si el numero elegido es mayor o menor al aleatori
 ---
 
 ![Hundir la flota](hundir_la_flota.png)
+
 [Hundir la flota](https://github.com/ComandPromt/Juegos/tree/master/hundir_la_flota)
 
 ---
